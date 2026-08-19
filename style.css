@@ -1,0 +1,68 @@
+body {
+    margin:0;
+    background:#111;
+    font-family:Arial;
+    color:white;
+    text-align:center;
+}
+
+
+#cockpit {
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+
+h1 {
+    margin:10px;
+}
+
+
+#instruments {
+
+    background:#000;
+    padding:10px;
+    display:flex;
+    justify-content:space-around;
+    font-size:18px;
+
+}
+
+
+#sky {
+
+    flex:1;
+    background:linear-gradient(
+        #4da6ff,
+        #bfe9ff
+    );
+
+    position:relative;
+    overflow:hidden;
+
+}
+
+
+#plane {
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:
+    translate(-50%,-50%);
+
+    font-size:80px;
+
+    transition:0.1s;
+
+}
+
+
+#help {
+
+    background:#222;
+    padding:10px;
+}
