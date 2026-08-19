@@ -1,25 +1,16 @@
-let altitude = 1000;
-let speed = 200;
-let heading = 0;
-let roll = 0;
-
-
-let plane = document.getElementById("plane");
-
-
-let keys = {};
+let keys={};
 
 
 document.addEventListener(
 "keydown",
-(e)=>{
+e=>{
 keys[e.key]=true;
 });
 
 
 document.addEventListener(
 "keyup",
-(e)=>{
+e=>{
 keys[e.key]=false;
 });
 
@@ -27,88 +18,59 @@ keys[e.key]=false;
 
 function update(){
 
-// accélération
 
-if(keys["w"]){
-speed += 1;
-}
-
-if(keys["s"]){
-speed -= 1;
-}
+if(keys["w"])
+planePhysics.throttle +=0.01;
 
 
-// montée descente
-
-if(keys["ArrowUp"]){
-altitude += 5;
-}
-
-if(keys["ArrowDown"]){
-altitude -= 5;
-}
+if(keys["s"])
+planePhysics.throttle -=0.01;
 
 
 
-// direction
-
-if(keys["ArrowLeft"]){
-heading -= 2;
-roll -= 2;
-}
+if(keys["ArrowUp"])
+planePhysics.pitch +=0.01;
 
 
-if(keys["ArrowRight"]){
-heading += 2;
-roll += 2;
-}
-
-
-// retour naturel
-
-roll *= 0.95;
-
-
-// limites
-
-if(speed<0)
-speed=0;
-
-
-if(altitude<0)
-altitude=0;
+if(keys["ArrowDown"])
+planePhysics.pitch -=0.01;
 
 
 
-// affichage
-
-document.getElementById("altitude").innerHTML=
-Math.round(altitude);
+if(keys["ArrowLeft"])
+planePhysics.roll -=1;
 
 
-document.getElementById("speed").innerHTML=
-Math.round(speed);
-
-
-document.getElementById("heading").innerHTML=
-Math.round(heading);
-
-
-document.getElementById("roll").innerHTML=
-Math.round(roll);
+if(keys["ArrowRight"])
+planePhysics.roll +=1;
 
 
 
-// rotation avion
+planePhysics.update();
 
-plane.style.transform=
+
+
+document.getElementById("altitude").innerHTML =
+Math.round(planePhysics.altitude);
+
+
+document.getElementById("speed").innerHTML =
+Math.round(planePhysics.speed);
+
+
+
+document.getElementById("roll").innerHTML =
+Math.round(planePhysics.roll);
+
+
+
+plane.style.transform =
 `
 translate(-50%,-50%)
-rotate(${roll}deg)
+rotate(${planePhysics.roll}deg)
 `;
 
 
-// boucle
 
 requestAnimationFrame(update);
 
