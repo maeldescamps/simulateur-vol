@@ -1,43 +1,133 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Simulateur de vol v0.1</title>
+
+<title>Flight Simulator v0.2</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
+
 <div id="cockpit">
 
-<h1>✈️ Flight Simulator v0.1</h1>
+
+<h1>✈️ Flight Simulator v0.2</h1>
+
+
 
 <div id="instruments">
-<p>Altitude : <span id="altitude">0</span> m</p>
-<p>Vitesse : <span id="speed">0</span> km/h</p>
-<p>Cap : <span id="heading">0</span>°</p>
-<p>Roulis : <span id="roll">0</span>°</p>
+
+
+<div>
+Altitude :
+<span id="altitude">
+0
+</span>
+m
 </div>
+
+
+<div>
+Vitesse :
+<span id="speed">
+0
+</span>
+km/h
+</div>
+
+
+<div>
+Cap :
+<span id="heading">
+0
+</span>
+°
+</div>
+
+
+<div>
+Roulis :
+<span id="roll">
+0
+</span>
+°
+</div>
+
+
+<div>
+Puissance moteur :
+<span id="throttle">
+50
+</span>
+%
+</div>
+
+
+</div>
+
+
+
 
 <div id="sky">
 
+
 <div id="plane">
-✈
-</div>
+
+✈️
 
 </div>
 
-<p id="help">
-↑ ↓ : monter / descendre |
-← → : tourner |
-W/S : accélérer/freiner
+
+</div>
+
+
+
+
+
+<div id="controls">
+
+
+<h3>Commandes</h3>
+
+<p>
+W / S → Puissance moteur
 </p>
 
+<p>
+↑ / ↓ → Monter / Descendre
+</p>
+
+<p>
+← / → → Incliner l'avion
+</p>
+
+
 </div>
 
+
+
+</div>
+
+
+
+<script src="physics.js"></script>
+
+<script src="atmosphere.js"></script>
+
+<script src="camera.js"></script>
 
 <script src="script.js"></script>
 
+
+
 </body>
+
 </html>
